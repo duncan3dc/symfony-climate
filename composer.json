@@ -1,0 +1,30 @@
+{
+    "name": "duncan3dc/symfony-climate",
+    "type": "library",
+    "description": "Combine Symfony's console output with The PHP League's CLImate",
+    "keywords": ["symfony", "output", "console", "climate"],
+    "homepage": "https://github.com/duncan3dc/symfony-climate",
+    "license": "Apache-2.0",
+    "authors": [{
+        "name": "Craig Duncan",
+        "email": "git@duncanc.co.uk",
+        "homepage": "https://github.com/duncan3dc",
+        "role": "Developer"
+    }],
+    "require": {
+        "league/climate": "^3.0",
+        "symfony/console": "^2.7|^3.0",
+        "php": "^5.6|^7.0"
+    },
+    "require-dev": {
+        "duncan3dc/object-intruder": "^0.1.0",
+        "mockery/mockery": "^0.9.6",
+        "phpunit/phpunit": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "duncan3dc\\SymfonyCLImate\\": "src/",
+            "duncan3dc\\SymfonyCLImateTests\\": "tests/"
+        }
+    }
+}
