@@ -19,3 +19,6 @@ script:
 
 git:
   depth: 5
+
+dist: trusty
+sudo: false
