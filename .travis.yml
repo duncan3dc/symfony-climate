@@ -20,8 +20,15 @@ install:
   - composer update $COMPOSER_OPTS
 
 script:
-  - ./vendor/bin/phpunit
-  - ./tests/lint.sh
+  - vendor/bin/phpunit
+  - tests/lint.sh
+
+jobs:
+  include:
+    - stage: coverage
+      script:
+        - vendor/bin/phpunit --coverage-clover=clover.xml
+        - vendor/bin/php-coveralls
 
 git:
   depth: 5
