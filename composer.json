@@ -23,9 +23,9 @@
         "phpunit/phpunit": "^5.6"
     },
     "autoload": {
-        "psr-4": {
-            "duncan3dc\\SymfonyCLImate\\": "src/",
-            "duncan3dc\\SymfonyCLImateTests\\": "tests/"
-        }
+        "psr-4": {"duncan3dc\\SymfonyCLImate\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {"duncan3dc\\SymfonyCLImateTests\\": "tests/"}
     }
 }
