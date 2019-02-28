@@ -1,9 +1,9 @@
 # symfony-climate
 Combine Symfony's [console output](http://symfony.com/doc/3.1/console/coloring.html) with The PHP League's [CLImate](http://climate.thephpleague.com/)
 
-[![Latest Stable Version](https://poser.pugx.org/duncan3dc/symfony-climate/version.svg)](https://packagist.org/packages/duncan3dc/symfony-climate)
-[![Build Status](https://travis-ci.org/duncan3dc/symfony-climate.svg?branch=master)](https://travis-ci.org/duncan3dc/symfony-climate)
-[![Coverage Status](https://coveralls.io/repos/github/duncan3dc/symfony-climate/badge.svg)](https://coveralls.io/github/duncan3dc/symfony-climate)
+[![release](https://poser.pugx.org/duncan3dc/symfony-climate/version.svg)](https://packagist.org/packages/duncan3dc/symfony-climate)
+[![build](https://travis-ci.org/duncan3dc/symfony-climate.svg?branch=master)](https://travis-ci.org/duncan3dc/symfony-climate)
+[![coverage](https://codecov.io/gh/duncan3dc/symfony-climate/graph/badge.svg)](https://codecov.io/gh/duncan3dc/symfony-climate)
 
 
 ## Installation
