@@ -9,7 +9,10 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Output class that allows all the functionality of CLImate, whilst also allowing standard ConsoleOutput behaviour.
+ * Output class that allows all the functionality of CLImate,
+ * whilst also allowing standard OutputInterface behaviour.
+ *
+ * @method CLImate highlight(string $str = null)
  */
 class Output extends CLImate implements OutputInterface
 {
@@ -18,9 +21,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * {@inheritDoc}
-     *
-     * Extend climate to add our default styles in
+     * @inheritdoc
      */
     public function __construct(ConsoleOutputInterface $console = null)
     {
@@ -51,7 +52,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function write($messages, $newline = false, $type = OutputInterface::OUTPUT_NORMAL)
     {
@@ -60,7 +61,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function writeln($messages, $type = OutputInterface::OUTPUT_NORMAL)
     {
@@ -69,7 +70,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function setVerbosity($level)
     {
@@ -78,7 +79,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function getVerbosity()
     {
@@ -87,7 +88,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function setFormatter(OutputFormatterInterface $formatter)
     {
@@ -96,7 +97,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function getFormatter()
     {
@@ -105,7 +106,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function isQuiet()
     {
@@ -114,7 +115,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function isVerbose()
     {
@@ -123,7 +124,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function isVeryVerbose()
     {
@@ -132,7 +133,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function isDebug()
     {
@@ -141,7 +142,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function setDecorated($decorated)
     {
@@ -150,7 +151,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function isDecorated()
     {
