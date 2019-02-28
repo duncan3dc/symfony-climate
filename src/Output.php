@@ -45,7 +45,7 @@ class Output extends CLImate implements OutputInterface
     private function getConsoleOutput()
     {
         if (!$this->console) {
-            $this->console = new ConsoleOutput;
+            $this->console = new ConsoleOutput();
         }
 
         return $this->console;

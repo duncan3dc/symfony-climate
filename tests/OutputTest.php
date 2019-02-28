@@ -31,7 +31,7 @@ class OutputTest extends TestCase
 
     public function testGetConsoleOutput()
     {
-        $output = new Intruder(new Output);
+        $output = new Intruder(new Output());
 
         $console = $output->getConsoleOutput();
         $this->assertInstanceOf(ConsoleOutputInterface::class, $console);
