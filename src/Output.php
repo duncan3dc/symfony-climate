@@ -13,9 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class Output extends CLImate implements OutputInterface
 {
-    /**
-     * @var ConsoleOutput $console Internal cache of the ConsoleOutput object we are mimicking
-     */
+    /** @var ConsoleOutputInterface|null */
     private $console;
 
 
@@ -40,9 +38,9 @@ class Output extends CLImate implements OutputInterface
     /**
      * Get the ConsoleOutput object we are mimicking.
      *
-     * @return ConsoleOutput
+     * @return ConsoleOutputInterface
      */
-    private function getConsoleOutput()
+    private function getConsoleOutput(): ConsoleOutputInterface
     {
         if (!$this->console) {
             $this->console = new ConsoleOutput();
