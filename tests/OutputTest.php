@@ -5,23 +5,25 @@ namespace duncan3dc\SymfonyCLImateTests;
 use duncan3dc\ObjectIntruder\Intruder;
 use duncan3dc\SymfonyCLImate\Output;
 use Mockery;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Formatter\OutputFormatterInterface;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class OutputTest extends \PHPUnit_Framework_TestCase
+class OutputTest extends TestCase
 {
     private $output;
     private $console;
 
-    public function setUp()
+
+    public function setUp(): void
     {
         $this->console = Mockery::mock(ConsoleOutputInterface::class);
         $this->output = new Output($this->console);
     }
 
 
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
     }
@@ -40,16 +42,23 @@ class OutputTest extends \PHPUnit_Framework_TestCase
     {
         $this->console->shouldReceive("write")->once()->with("ok", false, OutputInterface::OUTPUT_NORMAL);
         $this->output->write("ok");
+        $this->assertTrue(true);
     }
+
+
     public function testWrite2()
     {
         $this->console->shouldReceive("write")->once()->with("ok", true, OutputInterface::OUTPUT_NORMAL);
         $this->output->write("ok", true);
+        $this->assertTrue(true);
     }
+
+
     public function testWrite3()
     {
         $this->console->shouldReceive("write")->once()->with("ok", true, OutputInterface::OUTPUT_PLAIN);
         $this->output->write("ok", true, OutputInterface::OUTPUT_PLAIN);
+        $this->assertTrue(true);
     }
 
 
@@ -57,11 +66,15 @@ class OutputTest extends \PHPUnit_Framework_TestCase
     {
         $this->console->shouldReceive("writeln")->once()->with("ok", OutputInterface::OUTPUT_NORMAL);
         $this->output->writeln("ok");
+        $this->assertTrue(true);
     }
+
+
     public function testWriteln2()
     {
         $this->console->shouldReceive("writeln")->once()->with("ok", OutputInterface::OUTPUT_PLAIN);
         $this->output->writeln("ok", OutputInterface::OUTPUT_PLAIN);
+        $this->assertTrue(true);
     }
 
 
@@ -69,6 +82,7 @@ class OutputTest extends \PHPUnit_Framework_TestCase
     {
         $this->console->shouldReceive("setVerbosity")->once()->with(7);
         $this->output->setVerbosity(7);
+        $this->assertTrue(true);
     }
 
 
@@ -86,6 +100,7 @@ class OutputTest extends \PHPUnit_Framework_TestCase
 
         $this->console->shouldReceive("setFormatter")->once()->with($formatter);
         $this->output->setFormatter($formatter);
+        $this->assertTrue(true);
     }
 
 
@@ -133,6 +148,7 @@ class OutputTest extends \PHPUnit_Framework_TestCase
     {
         $this->console->shouldReceive("setDecorated")->once()->with(7);
         $this->output->setDecorated(7);
+        $this->assertTrue(true);
     }
 
 
