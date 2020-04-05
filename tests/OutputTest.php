@@ -148,10 +148,18 @@ class OutputTest extends TestCase
     }
 
 
-    public function testSetDecorated(): void
+    public function testSetDecorated1(): void
     {
-        $this->console->shouldReceive("setDecorated")->once()->with(7);
-        $this->output->setDecorated(7);
+        $this->console->shouldReceive("setDecorated")->once()->with(true);
+        $this->output->setDecorated(true);
+        $this->assertTrue(true);
+    }
+
+
+    public function testSetDecorated2(): void
+    {
+        $this->console->shouldReceive("setDecorated")->once()->with(false);
+        $this->output->setDecorated(false);
         $this->assertTrue(true);
     }
 
