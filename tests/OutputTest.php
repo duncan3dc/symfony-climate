@@ -5,6 +5,7 @@ namespace duncan3dc\SymfonyCLImateTests;
 use duncan3dc\ObjectIntruder\Intruder;
 use duncan3dc\SymfonyCLImate\Output;
 use Mockery;
+use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Formatter\OutputFormatterInterface;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
@@ -12,7 +13,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class OutputTest extends TestCase
 {
+    /** @var Output */
     private $output;
+
+    /** @var ConsoleOutputInterface|MockInterface */
     private $console;
 
 
@@ -29,7 +33,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testGetConsoleOutput()
+    public function testGetConsoleOutput(): void
     {
         $output = new Intruder(new Output());
 
@@ -38,7 +42,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testWrite1()
+    public function testWrite1(): void
     {
         $this->console->shouldReceive("write")->once()->with("ok", false, OutputInterface::OUTPUT_NORMAL);
         $this->output->write("ok");
@@ -46,7 +50,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testWrite2()
+    public function testWrite2(): void
     {
         $this->console->shouldReceive("write")->once()->with("ok", true, OutputInterface::OUTPUT_NORMAL);
         $this->output->write("ok", true);
@@ -54,7 +58,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testWrite3()
+    public function testWrite3(): void
     {
         $this->console->shouldReceive("write")->once()->with("ok", true, OutputInterface::OUTPUT_PLAIN);
         $this->output->write("ok", true, OutputInterface::OUTPUT_PLAIN);
@@ -62,7 +66,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testWriteln1()
+    public function testWriteln1(): void
     {
         $this->console->shouldReceive("writeln")->once()->with("ok", OutputInterface::OUTPUT_NORMAL);
         $this->output->writeln("ok");
@@ -70,7 +74,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testWriteln2()
+    public function testWriteln2(): void
     {
         $this->console->shouldReceive("writeln")->once()->with("ok", OutputInterface::OUTPUT_PLAIN);
         $this->output->writeln("ok", OutputInterface::OUTPUT_PLAIN);
@@ -78,7 +82,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testSetVerbosity()
+    public function testSetVerbosity(): void
     {
         $this->console->shouldReceive("setVerbosity")->once()->with(7);
         $this->output->setVerbosity(7);
@@ -86,7 +90,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testGetVerbosity()
+    public function testGetVerbosity(): void
     {
         $this->console->shouldReceive("getVerbosity")->once()->with()->andReturn(8);
         $result = $this->output->getVerbosity();
@@ -94,7 +98,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testSetFormatter()
+    public function testSetFormatter(): void
     {
         $formatter = Mockery::mock(OutputFormatterInterface::class);
 
@@ -104,7 +108,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testGetFormatter()
+    public function testGetFormatter(): void
     {
         $this->console->shouldReceive("getFormatter")->once()->with()->andReturn("formatter");
         $result = $this->output->getFormatter();
@@ -112,7 +116,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testIsQuiet()
+    public function testIsQuiet(): void
     {
         $this->console->shouldReceive("isQuiet")->once()->with()->andReturn("quiet");
         $result = $this->output->isQuiet();
@@ -120,7 +124,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testIsVerbose()
+    public function testIsVerbose(): void
     {
         $this->console->shouldReceive("isVerbose")->once()->with()->andReturn("verbose");
         $result = $this->output->isVerbose();
@@ -128,7 +132,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testIsVeryVerbose()
+    public function testIsVeryVerbose(): void
     {
         $this->console->shouldReceive("isVeryVerbose")->once()->with()->andReturn("very-verbose");
         $result = $this->output->isVeryVerbose();
@@ -136,7 +140,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testIsDebug()
+    public function testIsDebug(): void
     {
         $this->console->shouldReceive("isDebug")->once()->with()->andReturn("debug");
         $result = $this->output->isDebug();
@@ -144,7 +148,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testSetDecorated()
+    public function testSetDecorated(): void
     {
         $this->console->shouldReceive("setDecorated")->once()->with(7);
         $this->output->setDecorated(7);
@@ -152,7 +156,7 @@ class OutputTest extends TestCase
     }
 
 
-    public function testIsDecorated()
+    public function testIsDecorated(): void
     {
         $this->console->shouldReceive("isDecorated")->once()->with()->andReturn("decorated");
         $result = $this->output->isDecorated();
