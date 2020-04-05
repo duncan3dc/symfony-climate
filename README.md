@@ -2,7 +2,7 @@
 Combine Symfony's [console output](http://symfony.com/doc/3.1/console/coloring.html) with The PHP League's [CLImate](http://climate.thephpleague.com/)
 
 [![release](https://poser.pugx.org/duncan3dc/symfony-climate/version.svg)](https://packagist.org/packages/duncan3dc/symfony-climate)
-[![build](https://travis-ci.org/duncan3dc/symfony-climate.svg?branch=master)](https://travis-ci.org/duncan3dc/symfony-climate)
+[![build](https://github.com/duncan3dc/symfony-climate/workflows/.github/workflows/buildcheck.yml/badge.svg?branch=master)](https://github.com/duncan3dc/symfony-climate/actions?query=branch%3Amaster+workflow%3A.github%2Fworkflows%2Fbuildcheck.yml)
 [![coverage](https://codecov.io/gh/duncan3dc/symfony-climate/graph/badge.svg)](https://codecov.io/gh/duncan3dc/symfony-climate)
 
 
