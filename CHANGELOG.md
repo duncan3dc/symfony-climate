@@ -5,9 +5,19 @@ Changelog
 
 --------
 
+## 1.0.0 - 2020-04-05
+
+### Changed
+
+* [Support] Added support for PHP 7.4
+* [Support] Added support for Symfony 5.0
+* [Support] Dropped support for Symfony 4.2 and 4.3
+
+--------
+
 ## 0.3.0 - 2019-02-28
 
-### Added
+### Changed
 
 * [Support] Added support for PHP 7.3
 * [Support] Dropped support for PHP 5.6, 7.0, and 7.1
@@ -17,7 +27,7 @@ Changelog
 
 ## 0.2.0 - 2018-04-05
 
-### Added
+### Changed
 
 * [Support] Added support for PHP 7.2.
 * [Support] Added support for Symfony 4.0
