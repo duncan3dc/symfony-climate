@@ -52,7 +52,9 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * @inheritdoc
+     * @param string|iterable<string> $messages The message as an iterable of strings or a single string
+     *
+     * @return void
      */
     public function write($messages, $newline = false, $type = OutputInterface::OUTPUT_NORMAL)
     {
@@ -61,7 +63,9 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * @inheritdoc
+     * @param string|iterable<string> $messages The message as an iterable of strings or a single string
+     *
+     * @return void
      */
     public function writeln($messages, $type = OutputInterface::OUTPUT_NORMAL)
     {
@@ -70,7 +74,9 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * @inheritdoc
+     * @param int $level
+     *
+     * @return void
      */
     public function setVerbosity($level)
     {
@@ -88,7 +94,7 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * @inheritdoc
+     * @return void
      */
     public function setFormatter(OutputFormatterInterface $formatter)
     {
@@ -142,7 +148,9 @@ class Output extends CLImate implements OutputInterface
 
 
     /**
-     * @inheritdoc
+     * @param bool $decorated
+     *
+     * @return void
      */
     public function setDecorated($decorated)
     {
