@@ -20,9 +20,6 @@ class Output extends CLImate implements OutputInterface
     private $console;
 
 
-    /**
-     * @inheritdoc
-     */
     public function __construct(ConsoleOutputInterface $console = null)
     {
         parent::__construct();
@@ -56,7 +53,7 @@ class Output extends CLImate implements OutputInterface
      *
      * @return void
      */
-    public function write($messages, $newline = false, $type = OutputInterface::OUTPUT_NORMAL)
+    public function write($messages, bool $newline = false, int $type = OutputInterface::OUTPUT_NORMAL)
     {
         $this->getConsoleOutput()->write($messages, $newline, $type);
     }
@@ -67,101 +64,67 @@ class Output extends CLImate implements OutputInterface
      *
      * @return void
      */
-    public function writeln($messages, $type = OutputInterface::OUTPUT_NORMAL)
+    public function writeln($messages, int $type = OutputInterface::OUTPUT_NORMAL)
     {
         $this->getConsoleOutput()->writeln($messages, $type);
     }
 
 
-    /**
-     * @param int $level
-     *
-     * @return void
-     */
-    public function setVerbosity($level)
+    public function setVerbosity(int $level): void
     {
         $this->getConsoleOutput()->setVerbosity($level);
     }
 
 
-    /**
-     * @inheritdoc
-     */
-    public function getVerbosity()
+    public function getVerbosity(): int
     {
         return $this->getConsoleOutput()->getVerbosity();
     }
 
 
-    /**
-     * @return void
-     */
-    public function setFormatter(OutputFormatterInterface $formatter)
+    public function setFormatter(OutputFormatterInterface $formatter): void
     {
         $this->getConsoleOutput()->setFormatter($formatter);
     }
 
 
-    /**
-     * @inheritdoc
-     */
-    public function getFormatter()
+    public function getFormatter(): OutputFormatterInterface
     {
         return $this->getConsoleOutput()->getFormatter();
     }
 
 
-    /**
-     * @inheritdoc
-     */
-    public function isQuiet()
+    public function isQuiet(): bool
     {
         return $this->getConsoleOutput()->isQuiet();
     }
 
 
-    /**
-     * @inheritdoc
-     */
-    public function isVerbose()
+    public function isVerbose(): bool
     {
         return $this->getConsoleOutput()->isVerbose();
     }
 
 
-    /**
-     * @inheritdoc
-     */
-    public function isVeryVerbose()
+    public function isVeryVerbose(): bool
     {
         return $this->getConsoleOutput()->isVeryVerbose();
     }
 
 
-    /**
-     * @inheritdoc
-     */
-    public function isDebug()
+    public function isDebug(): bool
     {
         return $this->getConsoleOutput()->isDebug();
     }
 
 
-    /**
-     * @param bool $decorated
-     *
-     * @return void
-     */
-    public function setDecorated($decorated)
+    public function setDecorated(bool $decorated): void
     {
         $this->getConsoleOutput()->setDecorated($decorated);
     }
 
 
-    /**
-     * @inheritdoc
-     */
-    public function isDecorated()
+    public function isDecorated(): bool
     {
         return $this->getConsoleOutput()->isDecorated();
     }
