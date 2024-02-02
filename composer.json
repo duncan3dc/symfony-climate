@@ -30,5 +30,15 @@
     },
     "autoload-dev": {
         "psr-4": {"duncan3dc\\SymfonyCLImateTests\\": "tests/"}
+    },
+    "scripts": {
+        "test": [
+            "vendor/bin/phpunit",
+            "vendor/bin/phpstan analyse --level=max src",
+            "vendor/bin/phpstan analyse --level=max --configuration=phpstan-tests.neon tests",
+            "vendor/bin/composer-require-checker",
+            "vendor/bin/phpcs --standard=PSR1,PSR2,PSR12 src tests",
+            "@composer validate --strict"
+        ]
     }
 }
