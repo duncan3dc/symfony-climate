@@ -40,5 +40,10 @@
             "vendor/bin/phpcs --standard=PSR1,PSR2,PSR12 src tests",
             "@composer validate --strict"
         ]
+    },
+    "config": {
+        "allow-plugins": {
+            "ocramius/package-versions": false
+        }
     }
 }
