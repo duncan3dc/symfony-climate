@@ -84,8 +84,8 @@ class OutputTest extends TestCase
 
     public function testSetVerbosity(): void
     {
-        $this->console->shouldReceive("setVerbosity")->once()->with(7);
-        $this->output->setVerbosity(7);
+        $this->console->shouldReceive("setVerbosity")->once()->with(32);
+        $this->output->setVerbosity(32);
         $this->assertTrue(true);
     }
 
@@ -110,41 +110,74 @@ class OutputTest extends TestCase
 
     public function testGetFormatter(): void
     {
-        $this->console->shouldReceive("getFormatter")->once()->with()->andReturn("formatter");
+        $formatter = Mockery::mock(OutputFormatterInterface::class);
+        $this->console->shouldReceive("getFormatter")->once()->with()->andReturn($formatter);
         $result = $this->output->getFormatter();
-        $this->assertSame("formatter", $result);
+        $this->assertSame($formatter, $result);
     }
 
 
-    public function testIsQuiet(): void
+    public function testIsQuiet1(): void
     {
-        $this->console->shouldReceive("isQuiet")->once()->with()->andReturn("quiet");
+        $this->console->shouldReceive("isQuiet")->once()->with()->andReturn(false);
         $result = $this->output->isQuiet();
-        $this->assertSame("quiet", $result);
+        $this->assertSame(false, $result);
     }
 
 
-    public function testIsVerbose(): void
+    public function testIsQuiet2(): void
     {
-        $this->console->shouldReceive("isVerbose")->once()->with()->andReturn("verbose");
+        $this->console->shouldReceive("isQuiet")->once()->with()->andReturn(true);
+        $result = $this->output->isQuiet();
+        $this->assertSame(true, $result);
+    }
+
+
+    public function testIsVerbose1(): void
+    {
+        $this->console->shouldReceive("isVerbose")->once()->with()->andReturn(false);
         $result = $this->output->isVerbose();
-        $this->assertSame("verbose", $result);
+        $this->assertSame(false, $result);
     }
 
 
-    public function testIsVeryVerbose(): void
+    public function testIsVerbose2(): void
     {
-        $this->console->shouldReceive("isVeryVerbose")->once()->with()->andReturn("very-verbose");
+        $this->console->shouldReceive("isVerbose")->once()->with()->andReturn(true);
+        $result = $this->output->isVerbose();
+        $this->assertSame(true, $result);
+    }
+
+
+    public function testIsVeryVerbose1(): void
+    {
+        $this->console->shouldReceive("isVeryVerbose")->once()->with()->andReturn(false);
         $result = $this->output->isVeryVerbose();
-        $this->assertSame("very-verbose", $result);
+        $this->assertSame(false, $result);
     }
 
 
-    public function testIsDebug(): void
+    public function testIsVeryVerbose2(): void
     {
-        $this->console->shouldReceive("isDebug")->once()->with()->andReturn("debug");
+        $this->console->shouldReceive("isVeryVerbose")->once()->with()->andReturn(true);
+        $result = $this->output->isVeryVerbose();
+        $this->assertSame(true, $result);
+    }
+
+
+    public function testIsDebug1(): void
+    {
+        $this->console->shouldReceive("isDebug")->once()->with()->andReturn(true);
         $result = $this->output->isDebug();
-        $this->assertSame("debug", $result);
+        $this->assertSame(true, $result);
+    }
+
+
+    public function testIsDebug2(): void
+    {
+        $this->console->shouldReceive("isDebug")->once()->with()->andReturn(false);
+        $result = $this->output->isDebug();
+        $this->assertSame(false, $result);
     }
 
 
@@ -164,10 +197,18 @@ class OutputTest extends TestCase
     }
 
 
-    public function testIsDecorated(): void
+    public function testIsDecorated1(): void
     {
-        $this->console->shouldReceive("isDecorated")->once()->with()->andReturn("decorated");
+        $this->console->shouldReceive("isDecorated")->once()->with()->andReturn(true);
         $result = $this->output->isDecorated();
-        $this->assertSame("decorated", $result);
+        $this->assertSame(true, $result);
+    }
+
+
+    public function testIsDecorated2(): void
+    {
+        $this->console->shouldReceive("isDecorated")->once()->with()->andReturn(false);
+        $result = $this->output->isDecorated();
+        $this->assertSame(false, $result);
     }
 }
