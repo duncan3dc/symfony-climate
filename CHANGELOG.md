@@ -5,6 +5,16 @@ Changelog
 
 --------
 
+## 1.1.0 - 2024-02-23
+
+### Changed
+
+* [Support] Added support for PHP 8.1, 8.2, and 8.3
+* [Support] Added support for Symfony 6
+* [Support] Dropped support for Symfony 4
+
+--------
+
 ## 1.0.1 - 2021-08-15
 
 ### Changed
