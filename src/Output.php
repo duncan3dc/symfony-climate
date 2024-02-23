@@ -53,7 +53,7 @@ class Output extends CLImate implements OutputInterface
      *
      * @return void
      */
-    public function write($messages, bool $newline = false, int $type = OutputInterface::OUTPUT_NORMAL)
+    public function write($messages, bool $newline = false, int $type = OutputInterface::OUTPUT_NORMAL): void
     {
         $this->getConsoleOutput()->write($messages, $newline, $type);
     }
@@ -64,7 +64,7 @@ class Output extends CLImate implements OutputInterface
      *
      * @return void
      */
-    public function writeln($messages, int $type = OutputInterface::OUTPUT_NORMAL)
+    public function writeln($messages, int $type = OutputInterface::OUTPUT_NORMAL): void
     {
         $this->getConsoleOutput()->writeln($messages, $type);
     }
