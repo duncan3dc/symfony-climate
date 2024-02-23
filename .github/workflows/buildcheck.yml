@@ -10,7 +10,6 @@ jobs:
       fail-fast: false
       matrix:
         php:
-          - "7.4"
           - "8.0"
           - "8.1"
         composer:
@@ -19,6 +18,20 @@ jobs:
         symfony:
           - ""
           - "5.0"
+          - "6.0"
+        include:
+          - php: "7.4"
+            symfony: ""
+            composer: ""
+          - php: "7.4"
+            symfony: ""
+            composer: "--prefer-lowest"
+          - php: "7.4"
+            symfony: "5.0"
+            composer: ""
+          - php: "7.4"
+            symfony: "5.0"
+            composer: "--prefer-lowest"
 
     steps:
       - uses: actions/checkout@v1
