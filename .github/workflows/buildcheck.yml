@@ -63,6 +63,18 @@ jobs:
           - php: "8.1"
             symfony: "6.0"
             composer: "--prefer-lowest"
+          - php: "8.4"
+            symfony: ""
+            composer: ""
+          - php: "8.4"
+            symfony: "5.0"
+            composer: ""
+          - php: "8.4"
+            symfony: "6.0"
+            composer: ""
+          - php: "8.4"
+            symfony: "7.0"
+            composer: ""
 
     steps:
       - uses: actions/checkout@v1

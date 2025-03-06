@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Output class that allows all the functionality of CLImate,
  * whilst also allowing standard OutputInterface behaviour.
  *
- * @method CLImate highlight(string $str = null)
+ * @method CLImate highlight(?string $str = null)
  */
 class Output extends CLImate implements OutputInterface
 {
@@ -20,7 +20,7 @@ class Output extends CLImate implements OutputInterface
     private $console;
 
 
-    public function __construct(ConsoleOutputInterface $console = null)
+    public function __construct(?ConsoleOutputInterface $console = null)
     {
         parent::__construct();
 
