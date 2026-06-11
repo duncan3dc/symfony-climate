@@ -1,8 +1,7 @@
-on:
-  push:
+"on":
+  push: null
   schedule:
     - cron: 0 10 16 * *
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,6 +11,7 @@ jobs:
         php:
           - "8.2"
           - "8.3"
+          - "8"
         composer:
           - ""
           - "--prefer-lowest"
@@ -75,33 +75,25 @@ jobs:
           - php: "8.4"
             symfony: "7.0"
             composer: ""
-
     steps:
       - uses: actions/checkout@v1
-
       - name: Create Docker Container
         run: |
           docker build . -t ci-image --build-arg PHP_VERSION=${{ matrix.php }}
           docker run --interactive --detach --volume ${{ github.workspace }}:/app --name ci ci-image
-
       - name: Install Dependencies
         run: |
           docker exec ci .github/symfony.php ${{ matrix.symfony }}
           docker exec ci composer update --no-interaction --no-ansi --prefer-dist ${{ matrix.composer }}
-
       - name: PHPUnit
         run: docker exec ci vendor/bin/phpunit
-
       - name: PHPStan
         run: |
           docker exec ci vendor/bin/phpstan analyse --level=max src
           docker exec ci vendor/bin/phpstan analyse --level=max --configuration=phpstan-tests.neon tests
-
       - name: Coding Standards
         run: docker exec ci vendor/bin/phpcs --standard=PSR1,PSR2,PSR12 src tests
-
       - name: Check Dependencies
         run: docker exec ci vendor/bin/composer-require-checker
-
       - name: Composer Validate
         run: docker exec ci composer validate --strict
