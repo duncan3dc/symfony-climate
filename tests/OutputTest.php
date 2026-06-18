@@ -8,8 +8,11 @@ use Mockery;
 use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Formatter\OutputFormatterInterface;
+use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+
+use function method_exists;
 
 class OutputTest extends TestCase
 {
@@ -114,6 +117,57 @@ class OutputTest extends TestCase
         $this->console->shouldReceive("getFormatter")->once()->with()->andReturn($formatter);
         $result = $this->output->getFormatter();
         $this->assertSame($formatter, $result);
+    }
+
+
+    public function testIsSilent1(): void
+    {
+        if (method_exists($this->console, "isSilent")) {
+            $this->markTestSkipped("Legacy test for old versions of Symfony");
+        }
+        $this->console->shouldReceive("isQuiet")->once()->with()->andReturn(false);
+        $result = $this->output->isSilent();
+        $this->assertSame(false, $result);
+    }
+
+
+    public function testIsSilent2(): void
+    {
+        if (method_exists($this->console, "isSilent")) {
+            $this->markTestSkipped("Legacy test for old versions of Symfony");
+        }
+        $this->console->shouldReceive("isQuiet")->once()->with()->andReturn(true);
+        $result = $this->output->isSilent();
+        $this->assertSame(true, $result);
+    }
+
+
+    public function testIsSilent3(): void
+    {
+        $console = new ConsoleOutput();
+        if (!method_exists($console, "isSilent")) {
+            $this->markTestSkipped("Requires the isSilent() method from Symfony 7.2");
+        }
+        $console->setVerbosity(16);
+
+        $output = new Output($console);
+        $result = $output->isSilent();
+        $this->assertSame(false, $result);
+    }
+
+
+    public function testIsSilent4(): void
+    {
+        $console = new ConsoleOutput();
+        if (!method_exists($console, "isSilent")) {
+            $this->markTestSkipped("Requires the isSilent() method from Symfony 7.2");
+        }
+        # @phpstan-ignore argument.type
+        $console->setVerbosity(8);
+
+        $output = new Output($console);
+        $result = $output->isSilent();
+        $this->assertSame(true, $result);
     }
 
 

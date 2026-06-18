@@ -1,7 +1,12 @@
 Changelog
 =========
 
-## x.y.z - UNRELEASED
+## 1.3.0 - 2026-06-24
+
+### Changed
+
+* [Support] Added support for Symfony 8 and the `isSilent()` method.
+* [Support] Added support for PHP 8.5.
 
 --------
 

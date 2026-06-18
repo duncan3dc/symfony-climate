@@ -94,6 +94,16 @@ class Output extends CLImate implements OutputInterface
     }
 
 
+    public function isSilent(): bool
+    {
+        $console = $this->getConsoleOutput();
+        if (!method_exists($console, "isSilent")) {
+            return $this->getConsoleOutput()->isQuiet();
+        }
+        return $console->isSilent();
+    }
+
+
     public function isQuiet(): bool
     {
         return $this->getConsoleOutput()->isQuiet();
