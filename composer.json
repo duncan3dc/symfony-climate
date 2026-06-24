@@ -23,7 +23,7 @@
         "nikic/php-parser": "^4.18 || ^5.7",
         "phpstan/phpstan": "^0.12.94",
         "phpstan/phpstan-mockery": "^0.12.3",
-        "squizlabs/php_codesniffer": "^3.6",
+        "squizlabs/php_codesniffer": "^4.0",
         "phpunit/phpunit": "^9.0"
     },
     "autoload": {
@@ -38,7 +38,7 @@
             "vendor/bin/phpstan analyse --level=max src",
             "vendor/bin/phpstan analyse --level=max --configuration=phpstan-tests.neon tests",
             "vendor/bin/composer-require-checker",
-            "vendor/bin/phpcs --standard=PSR1,PSR2,PSR12 src tests",
+            "vendor/bin/phpcs",
             "@composer validate --strict"
         ]
     },
