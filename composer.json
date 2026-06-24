@@ -17,12 +17,11 @@
         "php": "^7.4 || ^8.0"
     },
     "require-dev": {
-        "duncan3dc/object-intruder": "^1.0",
-        "maglnet/composer-require-checker": "^2.0 || ^3.0 || ^4.0",
-        "mockery/mockery": "^1.4",
-        "nikic/php-parser": "^4.18 || ^5.7",
-        "phpstan/phpstan": "^0.12.94",
-        "phpstan/phpstan-mockery": "^0.12.3",
+        "duncan3dc/object-intruder": "^1.2",
+        "maglnet/composer-require-checker": "^3.0 || ^4.0",
+        "mockery/mockery": "^1.6",
+        "phpstan/phpstan": "^1.12",
+        "phpstan/phpstan-mockery": "^1.1",
         "squizlabs/php_codesniffer": "^4.0",
         "phpunit/phpunit": "^9.0"
     },
