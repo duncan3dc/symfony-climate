@@ -15,6 +15,7 @@ jobs:
           - "8.2"
           - "8.3"
           - "8.4"
+          - "8.5"
         composer:
           - ""
           - "--prefer-lowest"
@@ -70,6 +71,12 @@ jobs:
             symfony: "8.0"
             composer: ""
           - php: "8.4"
+            symfony: "8.0"
+            composer: "--prefer-lowest"
+          - php: "8.5"
+            symfony: "8.0"
+            composer: ""
+          - php: "8.5"
             symfony: "8.0"
             composer: "--prefer-lowest"
 
